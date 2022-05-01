@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build newifi-d2,2022.02.16-v2
+name: Build newifi-d2,2022.05.01
 
 on:
   repository_dispatch:
@@ -95,7 +95,7 @@ jobs:
       run: |
         cd openwrt
         make defconfig
-        make download -j8
+        make download -j8 V=s
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
